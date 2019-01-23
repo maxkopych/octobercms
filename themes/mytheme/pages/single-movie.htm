@@ -37,6 +37,16 @@ notFoundMessage = "Record not found"
         </ul>
     {% endif %}
 
+
+    {% if(record.actors) %}
+        <h5 class="my-3">actors</h5>
+        <ul>
+            {% for actore in record.actors %}
+                <li>{{ actore.name }} ({{ actore.age }})</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     {% if(record.gallery) %}
         <h3 class="my-3">Gallery</h3>
         <div class="row">

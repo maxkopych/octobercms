@@ -20,6 +20,10 @@ class Movie extends Model {
 	public $rules = [
 	];
 
+	//############################
+	//jsonable for repeating fields
+	protected $jsonable = ['actors'];
+
 	/*Relations*/
 
 	public $belongsToMany = [

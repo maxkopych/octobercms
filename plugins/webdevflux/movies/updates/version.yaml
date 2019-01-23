@@ -12,3 +12,9 @@
 1.0.5:
     - 'Created table webdevflux_movies_generes_pivot'
     - builder_table_create_webdevflux_movies_generes_pivot.php
+1.0.6:
+    - 'Updated table webdevflux_movies_'
+    - builder_table_update_webdevflux_movies__2.php
+1.0.7:
+    - 'Updated table webdevflux_movies_'
+    - builder_table_update_webdevflux_movies__3.php
