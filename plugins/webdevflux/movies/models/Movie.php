@@ -5,26 +5,33 @@ use Model;
 /**
  * Model
  */
-class Movie extends Model
-{
-    use \October\Rain\Database\Traits\Validation;
-    
+class Movie extends Model {
+	use \October\Rain\Database\Traits\Validation;
 
-    /**
-     * @var string The database table used by the model.
-     */
-    public $table = 'webdevflux_movies_';
 
-    /**
-     * @var array Validation rules
-     */
-    public $rules = [
-    ];
+	/**
+	 * @var string The database table used by the model.
+	 */
+	public $table = 'webdevflux_movies_';
 
-    /*Relations*/
+	/**
+	 * @var array Validation rules
+	 */
+	public $rules = [
+	];
+
+	/*Relations*/
+
+	public $belongsToMany = [
+			'genres' => [
+					"Webdevflux\Movies\Models\Genre",
+					"table"=> "webdevflux_movies_generes_pivot",
+					"order" => "genre_title"
+			]
+	];
 
 	public $attachOne = [
-			'poster' => 'System\Models\File'
+			'poster' => 'System\Models\File',
 	];
 
 	public $attachMany = [

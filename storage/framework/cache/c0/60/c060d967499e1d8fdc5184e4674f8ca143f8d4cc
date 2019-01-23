@@ -1,4 +1,4 @@
-1548237421a:1:{s:16:"single-movie.htm";a:10:{s:8:"fileName";s:16:"single-movie.htm";s:7:"content";s:1139:"title = "Movie single"
+1548263165a:1:{s:16:"single-movie.htm";a:10:{s:8:"fileName";s:16:"single-movie.htm";s:7:"content";s:1378:"title = "Movie single"
 url = "/movie/:slug"
 layout = "default"
 is_hidden = 0
@@ -17,6 +17,7 @@ notFoundMessage = "Record not found"
 {% if record %}
     <h1>{{ record.name }}
         <small class="blockquote-footer">{{ record.year }}</small>
+
     </h1>
 
     <img src="{{ record.poster.path }}" alt="">
@@ -26,6 +27,15 @@ notFoundMessage = "Record not found"
     <article class="my-5">
         {{ record.description|raw }}
     </article>
+
+    {% if(record.genres) %}
+        <h5 class="my-3">genres</h5>
+        <ul>
+            {% for genre in record.genres %}
+                <li>{{ genre.genre_title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
     {% if(record.gallery) %}
         <h3 class="my-3">Gallery</h3>
@@ -41,13 +51,14 @@ notFoundMessage = "Record not found"
 
 {% else %}
     {{ notFoundMessage }}
-{% endif %}";s:5:"mtime";i:1548236820;s:6:"markup";s:851:"{% set record = builderDetails2.record %}
+{% endif %}";s:5:"mtime";i:1548262564;s:6:"markup";s:1090:"{% set record = builderDetails2.record %}
 {% set displayColumn = builderDetails2.displayColumn %}
 {% set notFoundMessage = builderDetails2.notFoundMessage %}
 
 {% if record %}
     <h1>{{ record.name }}
         <small class="blockquote-footer">{{ record.year }}</small>
+
     </h1>
 
     <img src="{{ record.poster.path }}" alt="">
@@ -57,6 +68,15 @@ notFoundMessage = "Record not found"
     <article class="my-5">
         {{ record.description|raw }}
     </article>
+
+    {% if(record.genres) %}
+        <h5 class="my-3">genres</h5>
+        <ul>
+            {% for genre in record.genres %}
+                <li>{{ genre.genre_title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
     {% if(record.gallery) %}
         <h3 class="my-3">Gallery</h3>

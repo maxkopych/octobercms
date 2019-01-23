@@ -38,10 +38,11 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
             // line 7
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "year", array()), "html", null, true);
             echo "</small>
+
     </h1>
 
     <img src=\"";
-            // line 10
+            // line 11
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "poster", array()), "path", array()), "html", null, true);
             echo "\" alt=\"\">
 
@@ -49,26 +50,52 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
 
     <article class=\"my-5\">
         ";
-            // line 15
+            // line 16
             echo twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "description", array());
             echo "
     </article>
 
     ";
-            // line 18
+            // line 19
+            if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "genres", array())) {
+                // line 20
+                echo "        <h5 class=\"my-3\">genres</h5>
+        <ul>
+            ";
+                // line 22
+                $context['_parent'] = $context;
+                $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "genres", array()));
+                foreach ($context['_seq'] as $context["_key"] => $context["genre"]) {
+                    // line 23
+                    echo "                <li>";
+                    echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["genre"], "genre_title", array()), "html", null, true);
+                    echo "</li>
+            ";
+                }
+                $_parent = $context['_parent'];
+                unset($context['_seq'], $context['_iterated'], $context['_key'], $context['genre'], $context['_parent'], $context['loop']);
+                $context = array_intersect_key($context, $_parent) + $_parent;
+                // line 25
+                echo "        </ul>
+    ";
+            }
+            // line 27
+            echo "
+    ";
+            // line 28
             if (twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "gallery", array())) {
-                // line 19
+                // line 29
                 echo "        <h3 class=\"my-3\">Gallery</h3>
         <div class=\"row\">
             ";
-                // line 21
+                // line 31
                 $context['_parent'] = $context;
                 $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "gallery", array()));
                 foreach ($context['_seq'] as $context["_key"] => $context["img"]) {
-                    // line 22
+                    // line 32
                     echo "                <div class=\"col-xs-12 col-sm-6 col-md-4\">
                     <img class=\"img-fluid img-thumbnail\" src=\"";
-                    // line 23
+                    // line 33
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["img"], "path", array()), "html", null, true);
                     echo "\" alt=\"\">
                 </div>
@@ -77,16 +104,16 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
                 $_parent = $context['_parent'];
                 unset($context['_seq'], $context['_iterated'], $context['_key'], $context['img'], $context['_parent'], $context['loop']);
                 $context = array_intersect_key($context, $_parent) + $_parent;
-                // line 26
+                // line 36
                 echo "        </div>
     ";
             }
-            // line 28
+            // line 38
             echo "
 
 ";
         } else {
-            // line 31
+            // line 41
             echo "    ";
             echo twig_escape_filter($this->env, ($context["notFoundMessage"] ?? null), "html", null, true);
             echo "
@@ -106,7 +133,7 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
 
     public function getDebugInfo()
     {
-        return array (  90 => 31,  85 => 28,  81 => 26,  72 => 23,  69 => 22,  65 => 21,  61 => 19,  59 => 18,  53 => 15,  45 => 10,  39 => 7,  34 => 6,  32 => 5,  29 => 4,  27 => 3,  25 => 2,  23 => 1,);
+        return array (  117 => 41,  112 => 38,  108 => 36,  99 => 33,  96 => 32,  92 => 31,  88 => 29,  86 => 28,  83 => 27,  79 => 25,  70 => 23,  66 => 22,  62 => 20,  60 => 19,  54 => 16,  46 => 11,  39 => 7,  34 => 6,  32 => 5,  29 => 4,  27 => 3,  25 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -118,6 +145,7 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
 {% if record %}
     <h1>{{ record.name }}
         <small class=\"blockquote-footer\">{{ record.year }}</small>
+
     </h1>
 
     <img src=\"{{ record.poster.path }}\" alt=\"\">
@@ -127,6 +155,15 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
     <article class=\"my-5\">
         {{ record.description|raw }}
     </article>
+
+    {% if(record.genres) %}
+        <h5 class=\"my-3\">genres</h5>
+        <ul>
+            {% for genre in record.genres %}
+                <li>{{ genre.genre_title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
     {% if(record.gallery) %}
         <h3 class=\"my-3\">Gallery</h3>

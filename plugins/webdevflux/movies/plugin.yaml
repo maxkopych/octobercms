@@ -9,3 +9,8 @@ navigation:
         label: Movies
         url: webdevflux/movies/movies
         icon: icon-video-camera
+        sideMenu:
+            Genres:
+                label: Genres
+                url: webdevflux/movies/genres
+                icon: icon-tags

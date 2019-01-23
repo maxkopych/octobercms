@@ -17,6 +17,7 @@ notFoundMessage = "Record not found"
 {% if record %}
     <h1>{{ record.name }}
         <small class="blockquote-footer">{{ record.year }}</small>
+
     </h1>
 
     <img src="{{ record.poster.path }}" alt="">
@@ -26,6 +27,15 @@ notFoundMessage = "Record not found"
     <article class="my-5">
         {{ record.description|raw }}
     </article>
+
+    {% if(record.genres) %}
+        <h5 class="my-3">genres</h5>
+        <ul>
+            {% for genre in record.genres %}
+                <li>{{ genre.genre_title }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
 
     {% if(record.gallery) %}
         <h3 class="my-3">Gallery</h3>

@@ -1,0 +1,10 @@
+name: Genres
+form: $/webdevflux/movies/models/genre/fields.yaml
+modelClass: Webdevflux\Movies\Models\Genre
+defaultRedirect: webdevflux/movies/genres
+create:
+    redirect: 'webdevflux/movies/genres/update/:id'
+    redirectClose: webdevflux/movies/genres
+update:
+    redirect: webdevflux/movies/genres
+    redirectClose: webdevflux/movies/genres
