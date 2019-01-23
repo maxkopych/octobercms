@@ -1,0 +1,10 @@
+name: Movies
+form: $/webdevflux/movies/models/movie/fields.yaml
+modelClass: Webdevflux\Movies\Models\Movie
+defaultRedirect: webdevflux/movies/movies
+create:
+    redirect: 'webdevflux/movies/movies/update/:id'
+    redirectClose: webdevflux/movies/movies
+update:
+    redirect: webdevflux/movies/movies
+    redirectClose: webdevflux/movies/movies

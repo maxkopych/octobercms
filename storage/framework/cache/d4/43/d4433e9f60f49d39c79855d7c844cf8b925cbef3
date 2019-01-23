@@ -1,0 +1,78 @@
+1548228821a:1:{s:11:"default.htm";a:6:{s:8:"fileName";s:11:"default.htm";s:7:"content";s:1366:"description = "Default layout"
+==
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>October CMS - {{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}">
+  <meta name="title" content="{{ this.page.meta_title }}">
+  <meta name="author" content="OctoberCMS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="OctoberCMS">
+  <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+  <!--When you put in array it will combine them and minify them-->
+  <!--Plus it also converting sass and less-->
+  <!--<link rel="stylesheet" href="{#{ ['assets/css/style.scss']|theme }#}">-->
+
+  <!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
+  <link rel="stylesheet" href="{{ 'assets/compiled/css/style.css'|theme }}">
+
+
+  {% styles %}
+</head>
+<body>
+
+{% page %}
+
+
+<!-- Scripts -->
+<!--When you put in array it will combine them and minify them-->
+<!--<script src="{#{ ['assets/js/jquery.js', 'assets/js/main.js']|theme }#}"></script>-->
+
+<!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
+<!--By Default it compile to all.js-->
+<script src="{{ 'assets/compiled/js/all.js'|theme }}"></script>
+
+{% scripts %}
+
+</body>
+</html>
+";s:5:"mtime";i:1548223163;s:6:"markup";s:1328:"<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>October CMS - {{ this.page.title }}</title>
+  <meta name="description" content="{{ this.page.meta_description }}">
+  <meta name="title" content="{{ this.page.meta_title }}">
+  <meta name="author" content="OctoberCMS">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="generator" content="OctoberCMS">
+  <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
+  <!--When you put in array it will combine them and minify them-->
+  <!--Plus it also converting sass and less-->
+  <!--<link rel="stylesheet" href="{#{ ['assets/css/style.scss']|theme }#}">-->
+
+  <!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
+  <link rel="stylesheet" href="{{ 'assets/compiled/css/style.css'|theme }}">
+
+
+  {% styles %}
+</head>
+<body>
+
+{% page %}
+
+
+<!-- Scripts -->
+<!--When you put in array it will combine them and minify them-->
+<!--<script src="{#{ ['assets/js/jquery.js', 'assets/js/main.js']|theme }#}"></script>-->
+
+<!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
+<!--By Default it compile to all.js-->
+<script src="{{ 'assets/compiled/js/all.js'|theme }}"></script>
+
+{% scripts %}
+
+</body>
+</html>";s:4:"code";N;s:11:"description";s:14:"Default layout";}}

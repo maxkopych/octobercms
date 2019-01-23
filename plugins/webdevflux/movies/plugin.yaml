@@ -1,0 +1,11 @@
+plugin:
+    name: 'webdevflux.movies::lang.plugin.name'
+    description: 'webdevflux.movies::lang.plugin.description'
+    author: WebDevFlux
+    icon: oc-icon-video-camera
+    homepage: ''
+navigation:
+    main-menu-item:
+        label: Movies
+        url: webdevflux/movies/movies
+        icon: icon-video-camera
