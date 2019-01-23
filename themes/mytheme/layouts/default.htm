@@ -13,7 +13,12 @@ description = "Default layout"
   <link rel="icon" type="image/png" href="{{ 'assets/images/october.png'|theme }}">
   <!--When you put in array it will combine them and minify them-->
   <!--Plus it also converting sass and less-->
-  <link rel="stylesheet" href="{{ ['assets/css/style.scss']|theme }}">
+  <!--<link rel="stylesheet" href="{#{ ['assets/css/style.scss']|theme }#}">-->
+
+  <!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
+  <link rel="stylesheet" href="{{ 'assets/compiled/css/style.css'|theme }}">
+
+
   {% styles %}
 </head>
 <body>
@@ -23,7 +28,12 @@ description = "Default layout"
 
 <!-- Scripts -->
 <!--When you put in array it will combine them and minify them-->
-<script src="{{ ['assets/js/jquery.js', 'assets/js/main.js']|theme }}"></script>
+<!--<script src="{#{ ['assets/js/jquery.js', 'assets/js/main.js']|theme }#}"></script>-->
+
+<!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
+<!--By Default it compile to all.js-->
+<script src="{{ 'assets/compiled/js/all.js'|theme }}"></script>
+
 {% scripts %}
 
 </body>

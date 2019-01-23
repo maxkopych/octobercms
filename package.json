@@ -1,0 +1,24 @@
+{
+  "name": "laravel-october-cms.local",
+  "version": "1.0.0",
+  "description": "October Cms Test",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxkopych/octobercms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maxkopych/octobercms/issues"
+  },
+  "homepage": "https://github.com/maxkopych/octobercms#readme",
+  "devDependencies": {
+    "laravel-elixir": "^6.0.0-18",
+    "laravel-elixir-browsersync-official": "^1.0.0",
+    "laravel-elixir-livereload": "^1.1.6"
+  }
+}
