@@ -1,0 +1,23 @@
+title = "Genres"
+url = "/genre/:slug"
+layout = "default"
+is_hidden = 0
+
+[builderDetails]
+modelClass = "Webdevflux\Movies\Models\Genre"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "genre_title"
+notFoundMessage = "Record not found"
+==
+{% set record = builderDetails.record %}
+{% set displayColumn = builderDetails.displayColumn %}
+{% set notFoundMessage = builderDetails.notFoundMessage %}
+
+{% if record.movies %}
+    {%  for movie in record.movies %}
+       <h3><a href="{{ "single-movie"|page({slug: movie.slug}) }}">{{ movie.name }}</a></h3>
+    {% endfor %}
+{% else %}
+    {{ notFoundMessage }}
+{% endif %}

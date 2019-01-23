@@ -32,7 +32,7 @@ notFoundMessage = "Record not found"
         <h5 class="my-3">genres</h5>
         <ul>
             {% for genre in record.genres %}
-                <li>{{ genre.genre_title }}</li>
+                <li><a href="{{ 'genres'|page({slug:genre.slug})  }}">{{ genre.genre_title }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}

@@ -1,4 +1,4 @@
-1548263165a:1:{s:16:"single-movie.htm";a:10:{s:8:"fileName";s:16:"single-movie.htm";s:7:"content";s:1378:"title = "Movie single"
+1548264935a:1:{s:16:"single-movie.htm";a:10:{s:8:"fileName";s:16:"single-movie.htm";s:7:"content";s:1432:"title = "Movie single"
 url = "/movie/:slug"
 layout = "default"
 is_hidden = 0
@@ -32,7 +32,7 @@ notFoundMessage = "Record not found"
         <h5 class="my-3">genres</h5>
         <ul>
             {% for genre in record.genres %}
-                <li>{{ genre.genre_title }}</li>
+                <li><a href="{{ 'genres'|page({slug:genre.slug})  }}">{{ genre.genre_title }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
@@ -51,7 +51,7 @@ notFoundMessage = "Record not found"
 
 {% else %}
     {{ notFoundMessage }}
-{% endif %}";s:5:"mtime";i:1548262564;s:6:"markup";s:1090:"{% set record = builderDetails2.record %}
+{% endif %}";s:5:"mtime";i:1548264335;s:6:"markup";s:1144:"{% set record = builderDetails2.record %}
 {% set displayColumn = builderDetails2.displayColumn %}
 {% set notFoundMessage = builderDetails2.notFoundMessage %}
 
@@ -73,7 +73,7 @@ notFoundMessage = "Record not found"
         <h5 class="my-3">genres</h5>
         <ul>
             {% for genre in record.genres %}
-                <li>{{ genre.genre_title }}</li>
+                <li><a href="{{ 'genres'|page({slug:genre.slug})  }}">{{ genre.genre_title }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}

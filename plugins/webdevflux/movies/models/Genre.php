@@ -26,4 +26,15 @@ class Genre extends Model
      */
     public $rules = [
     ];
+
+    /*Relations*/
+
+	public $belongsToMany = [
+			'movies' => [
+					"Webdevflux\Movies\Models\Movie",
+					"table"=> "webdevflux_movies_generes_pivot",
+					"order" => "name"
+			]
+	];
+
 }

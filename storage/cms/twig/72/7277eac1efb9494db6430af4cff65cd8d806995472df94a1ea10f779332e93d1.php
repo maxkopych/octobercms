@@ -67,9 +67,11 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
                 $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, ($context["record"] ?? null), "genres", array()));
                 foreach ($context['_seq'] as $context["_key"] => $context["genre"]) {
                     // line 23
-                    echo "                <li>";
+                    echo "                <li><a href=\"";
+                    echo $this->extensions['Cms\Twig\Extension']->pageFilter("genres", array("slug" => twig_get_attribute($this->env, $this->source, $context["genre"], "slug", array())));
+                    echo "\">";
                     echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["genre"], "genre_title", array()), "html", null, true);
-                    echo "</li>
+                    echo "</a></li>
             ";
                 }
                 $_parent = $context['_parent'];
@@ -133,7 +135,7 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
 
     public function getDebugInfo()
     {
-        return array (  117 => 41,  112 => 38,  108 => 36,  99 => 33,  96 => 32,  92 => 31,  88 => 29,  86 => 28,  83 => 27,  79 => 25,  70 => 23,  66 => 22,  62 => 20,  60 => 19,  54 => 16,  46 => 11,  39 => 7,  34 => 6,  32 => 5,  29 => 4,  27 => 3,  25 => 2,  23 => 1,);
+        return array (  119 => 41,  114 => 38,  110 => 36,  101 => 33,  98 => 32,  94 => 31,  90 => 29,  88 => 28,  85 => 27,  81 => 25,  70 => 23,  66 => 22,  62 => 20,  60 => 19,  54 => 16,  46 => 11,  39 => 7,  34 => 6,  32 => 5,  29 => 4,  27 => 3,  25 => 2,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -160,7 +162,7 @@ class __TwigTemplate_1a46c49c3cc98576fbcc95bf7d0ea51d7e2c57e4fdaccf9faffc5d8e407
         <h5 class=\"my-3\">genres</h5>
         <ul>
             {% for genre in record.genres %}
-                <li>{{ genre.genre_title }}</li>
+                <li><a href=\"{{ 'genres'|page({slug:genre.slug})  }}\">{{ genre.genre_title }}</a></li>
             {% endfor %}
         </ul>
     {% endif %}
