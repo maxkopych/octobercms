@@ -25,7 +25,10 @@ class __TwigTemplate_2219a03d92d9f49abb6f3c4ea03410f6958c19ad2b5cb1561043df9c165
         <div class=\"container\">
             <div class=\"row w-100 justify-content-between\">
                 <div class=\"col-auto\">
-                    <h1 class=\"navbar-brand\">October Movies</h1>
+                    <a href=\"";
+        // line 6
+        echo $this->extensions['Cms\Twig\Extension']->pageFilter("homepage");
+        echo "\"><h1 class=\"navbar-brand\">October Movies</h1></a>
                 </div>
                 <div class=\"col-auto\">
                     <ul class=\"navbar-nav mr-auto\">
@@ -72,7 +75,7 @@ class __TwigTemplate_2219a03d92d9f49abb6f3c4ea03410f6958c19ad2b5cb1561043df9c165
 
     public function getDebugInfo()
     {
-        return array (  51 => 14,  45 => 13,  40 => 11,  34 => 10,  23 => 1,);
+        return array (  54 => 14,  48 => 13,  43 => 11,  37 => 10,  30 => 6,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -82,7 +85,7 @@ class __TwigTemplate_2219a03d92d9f49abb6f3c4ea03410f6958c19ad2b5cb1561043df9c165
         <div class=\"container\">
             <div class=\"row w-100 justify-content-between\">
                 <div class=\"col-auto\">
-                    <h1 class=\"navbar-brand\">October Movies</h1>
+                    <a href=\"{{ 'homepage'|page }}\"><h1 class=\"navbar-brand\">October Movies</h1></a>
                 </div>
                 <div class=\"col-auto\">
                     <ul class=\"navbar-nav mr-auto\">

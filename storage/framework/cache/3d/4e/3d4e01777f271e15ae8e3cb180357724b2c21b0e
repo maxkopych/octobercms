@@ -1,5 +1,5 @@
-1548231307a:1:{s:10:"movies.htm";a:10:{s:8:"fileName";s:10:"movies.htm";s:7:"content";s:2081:"title = "Movies"
-url = "/movies"
+1548236965a:1:{s:10:"movies.htm";a:10:{s:8:"fileName";s:10:"movies.htm";s:7:"content";s:2803:"title = "Movies"
+url = "/movies/:page?"
 layout = "default"
 is_hidden = 0
 
@@ -9,8 +9,10 @@ scope = "-"
 scopeValue = "{{ :scope }}"
 displayColumn = "name"
 noRecordsMessage = "No records found"
-detailsPage = "-"
-detailsUrlParameter = "id"
+detailsPage = "single-movie"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 1
 pageNumber = "{{ :page }}"
 ==
 {% set records = builderList.records %}
@@ -20,9 +22,8 @@ pageNumber = "{{ :page }}"
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
-{{ dump(builderList.records) }}
 
-<ul class="record-list">
+<ul class="record-list list-group">
     {% for record in records %}
         <li>
             {# Use spaceless tag to remove spaces inside the A tag. #}
@@ -31,44 +32,61 @@ pageNumber = "{{ :page }}"
                     <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
                 {% endif %}
 
-                {{ attribute(record, displayColumn) }}
+                <h3>{{ record.name }}</h3>
+
 
                 {% if detailsPage %}
                     </a>
                 {% endif %}
             {% endspaceless %}
+
+            {#thumbnail with 200/200 it will auto generates
+              You can crope it too by
+              200,200,{'mode':'crop'}
+              also auto value allowed
+            #}
+            <img src="{{ record.poster.thumb(200,200) }}" alt="">
+
+            {# |raw adding with html #}
+            {{ html_limit(record.description, 150)|raw }}
         </li>
+
     {% else %}
         <li class="no-data">{{ noRecordsMessage }}</li>
     {% endfor %}
 </ul>
 
 {% if records.lastPage > 1 %}
-    <ul class="pagination">
-        {% if records.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if records.currentPage > 1 %}
+                <li class="page-item"><a
+                            class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr;
+                        Prev</a></li>
+            {% endif %}
 
-        {% for page in 1..records.lastPage %}
-            <li class="{{ records.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
+            {% for page in 1..records.lastPage %}
+                <li class="page-item {{ records.currentPage == page ? 'active' : null }}">
+                    <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                </li>
+            {% endfor %}
 
-        {% if records.lastPage > records.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}";s:5:"mtime";i:1548230706;s:6:"markup";s:1763:"{% set records = builderList.records %}
+            {% if records.lastPage > records.currentPage %}
+                <li class="page-item"><a
+                            class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next
+                        &rarr;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}";s:5:"mtime";i:1548236365;s:6:"markup";s:2418:"{% set records = builderList.records %}
 {% set displayColumn = builderList.displayColumn %}
 {% set noRecordsMessage = builderList.noRecordsMessage %}
 {% set detailsPage = builderList.detailsPage %}
 {% set detailsKeyColumn = builderList.detailsKeyColumn %}
 {% set detailsUrlParameter = builderList.detailsUrlParameter %}
 
-{{ dump(builderList.records) }}
 
-<ul class="record-list">
+<ul class="record-list list-group">
     {% for record in records %}
         <li>
             {# Use spaceless tag to remove spaces inside the A tag. #}
@@ -77,32 +95,50 @@ pageNumber = "{{ :page }}"
                     <a href="{{ detailsPage|page({ (detailsUrlParameter): attribute(record, detailsKeyColumn) }) }}">
                 {% endif %}
 
-                {{ attribute(record, displayColumn) }}
+                <h3>{{ record.name }}</h3>
+
 
                 {% if detailsPage %}
                     </a>
                 {% endif %}
             {% endspaceless %}
+
+            {#thumbnail with 200/200 it will auto generates
+              You can crope it too by
+              200,200,{'mode':'crop'}
+              also auto value allowed
+            #}
+            <img src="{{ record.poster.thumb(200,200) }}" alt="">
+
+            {# |raw adding with html #}
+            {{ html_limit(record.description, 150)|raw }}
         </li>
+
     {% else %}
         <li class="no-data">{{ noRecordsMessage }}</li>
     {% endfor %}
 </ul>
 
 {% if records.lastPage > 1 %}
-    <ul class="pagination">
-        {% if records.currentPage > 1 %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr; Prev</a></li>
-        {% endif %}
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            {% if records.currentPage > 1 %}
+                <li class="page-item"><a
+                            class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage-1) }) }}">&larr;
+                        Prev</a></li>
+            {% endif %}
 
-        {% for page in 1..records.lastPage %}
-            <li class="{{ records.currentPage == page ? 'active' : null }}">
-                <a href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
-            </li>
-        {% endfor %}
+            {% for page in 1..records.lastPage %}
+                <li class="page-item {{ records.currentPage == page ? 'active' : null }}">
+                    <a class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): page }) }}">{{ page }}</a>
+                </li>
+            {% endfor %}
 
-        {% if records.lastPage > records.currentPage %}
-            <li><a href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next &rarr;</a></li>
-        {% endif %}
-    </ul>
-{% endif %}";s:4:"code";N;s:5:"title";s:6:"Movies";s:3:"url";s:7:"/movies";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:11:"builderList";a:8:{s:10:"modelClass";s:30:"Webdevflux\Movies\Models\Movie";s:5:"scope";s:1:"-";s:10:"scopeValue";s:12:"{{ :scope }}";s:13:"displayColumn";s:4:"name";s:16:"noRecordsMessage";s:16:"No records found";s:11:"detailsPage";s:1:"-";s:19:"detailsUrlParameter";s:2:"id";s:10:"pageNumber";s:11:"{{ :page }}";}}}
+            {% if records.lastPage > records.currentPage %}
+                <li class="page-item"><a
+                            class="page-link" href="{{ this.page.baseFileName|page({ (pageParam): (records.currentPage+1) }) }}">Next
+                        &rarr;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+{% endif %}";s:4:"code";N;s:5:"title";s:6:"Movies";s:3:"url";s:14:"/movies/:page?";s:6:"layout";s:7:"default";s:9:"is_hidden";s:1:"0";s:11:"builderList";a:10:{s:10:"modelClass";s:30:"Webdevflux\Movies\Models\Movie";s:5:"scope";s:1:"-";s:10:"scopeValue";s:12:"{{ :scope }}";s:13:"displayColumn";s:4:"name";s:16:"noRecordsMessage";s:16:"No records found";s:11:"detailsPage";s:12:"single-movie";s:16:"detailsKeyColumn";s:4:"slug";s:19:"detailsUrlParameter";s:4:"slug";s:14:"recordsPerPage";s:1:"1";s:10:"pageNumber";s:11:"{{ :page }}";}}}

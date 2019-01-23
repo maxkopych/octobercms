@@ -9373,6 +9373,10 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 
+ul {
+  list-style: none;
+}
+
 footer {
   background: #c3e6cb;
 }

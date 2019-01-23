@@ -3,3 +3,6 @@
 1.0.2:
     - 'Created table webdevflux_movies_'
     - builder_table_create_webdevflux_movies_.php
+1.0.3:
+    - 'Updated table webdevflux_movies_'
+    - builder_table_update_webdevflux_movies_.php
