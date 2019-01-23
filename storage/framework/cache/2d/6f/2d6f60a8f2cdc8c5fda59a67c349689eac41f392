@@ -1,0 +1,19 @@
+1548231655a:1:{s:10:"footer.htm";a:5:{s:8:"fileName";s:10:"footer.htm";s:7:"content";s:555:"<footer class="footer py-3">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>This is our footer</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, amet at corporis distinctio ducimus harum, inventore officia placeat quos repudiandae sed soluta sunt temporibus? Cupiditate dignissimos ex itaque labore odio quia voluptatem! Aliquam aliquid deserunt doloremque dolores eaque excepturi illum ipsa libero quas suscipit, tempore unde ut veritatis vero voluptas.</p>
+			</div>
+		</div>
+	</div>
+</footer>";s:5:"mtime";i:1548229703;s:6:"markup";s:555:"<footer class="footer py-3">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<h3>This is our footer</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, amet at corporis distinctio ducimus harum, inventore officia placeat quos repudiandae sed soluta sunt temporibus? Cupiditate dignissimos ex itaque labore odio quia voluptatem! Aliquam aliquid deserunt doloremque dolores eaque excepturi illum ipsa libero quas suscipit, tempore unde ut veritatis vero voluptas.</p>
+			</div>
+		</div>
+	</div>
+</footer>";s:4:"code";N;}}

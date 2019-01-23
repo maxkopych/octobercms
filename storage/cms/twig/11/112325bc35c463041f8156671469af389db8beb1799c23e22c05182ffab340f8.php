@@ -64,30 +64,50 @@ class __TwigTemplate_c8760775051ade3fbc389cc4f5568317b1464fbfeb0cfcbcee0abba2589
         echo "</head>
 <body>
 
-";
+  ";
         // line 24
-        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
+        $context['__cms_partial_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("header"        , $context['__cms_partial_params']        , true        );
+        unset($context['__cms_partial_params']);
         // line 25
         echo "
+<div class=\"container my-5\">
+  <div class=\"row\">
+    <div class=\"col\">
+      ";
+        // line 29
+        echo $this->env->getExtension('Cms\Twig\Extension')->pageFunction();
+        // line 30
+        echo "    </div>
+  </div>
+</div>
 
+
+  ";
+        // line 35
+        $context['__cms_partial_params'] = [];
+        echo $this->env->getExtension('Cms\Twig\Extension')->partialFunction("footer"        , $context['__cms_partial_params']        , true        );
+        unset($context['__cms_partial_params']);
+        // line 36
+        echo "
 <!-- Scripts -->
 <!--When you put in array it will combine them and minify them-->
 <!--<script src=\"";
-        // line 29
+        // line 39
         echo "\"></script>-->
 
 <!--we can use laravel elixir to autorefresh. check gulpfile.js and we don't need []-->
 <!--By Default it compile to all.js-->
 <script src=\"";
-        // line 33
+        // line 43
         echo $this->extensions['Cms\Twig\Extension']->themeFilter("assets/compiled/js/all.js");
         echo "\"></script>
 
 ";
-        // line 35
+        // line 45
         echo $this->env->getExtension('Cms\Twig\Extension')->assetsFunction('js');
         echo $this->env->getExtension('Cms\Twig\Extension')->displayBlock('scripts');
-        // line 36
+        // line 46
         echo "
 </body>
 </html>";
@@ -105,7 +125,7 @@ class __TwigTemplate_c8760775051ade3fbc389cc4f5568317b1464fbfeb0cfcbcee0abba2589
 
     public function getDebugInfo()
     {
-        return array (  91 => 36,  88 => 35,  83 => 33,  77 => 29,  71 => 25,  69 => 24,  64 => 21,  61 => 20,  55 => 17,  50 => 14,  44 => 11,  37 => 7,  33 => 6,  29 => 5,  23 => 1,);
+        return array (  111 => 46,  108 => 45,  103 => 43,  97 => 39,  92 => 36,  88 => 35,  81 => 30,  79 => 29,  73 => 25,  69 => 24,  64 => 21,  61 => 20,  55 => 17,  50 => 14,  44 => 11,  37 => 7,  33 => 6,  29 => 5,  23 => 1,);
     }
 
     public function getSourceContext()
@@ -133,8 +153,18 @@ class __TwigTemplate_c8760775051ade3fbc389cc4f5568317b1464fbfeb0cfcbcee0abba2589
 </head>
 <body>
 
-{% page %}
+  {% partial \"header\" %}
 
+<div class=\"container my-5\">
+  <div class=\"row\">
+    <div class=\"col\">
+      {% page %}
+    </div>
+  </div>
+</div>
+
+
+  {% partial \"footer\" %}
 
 <!-- Scripts -->
 <!--When you put in array it will combine them and minify them-->
